@@ -1,0 +1,25 @@
+布局阶段：1.外层容器container====》width为显示的宽度 overflow:hidden，position：relative
+         2.图片的容器list====>width是所有图片的总宽度，所有图片浮动
+         3.左右按钮a 设置position：absolute
+         4.小按钮ul>li做或者div>span   position：absolute
+         
+js:
+   当点击左按钮的时候判断图片的index是否为1，如果为1就设置index为最后一张，否则index-=1；
+   当点击右按钮的时候判断图片的index是否为5，如果为5,设置index为第一张，否则index+=1；
+   （动画函数）：
+          判断如果加了显示的宽度后，值大于-600，则设置style.left=最后一张图的偏移量
+                                  值如果小于-3000，则设置style.left=第一张图片的偏移
+    当点击小按钮的时候：
+         优化：如果当前这个按钮class为on则return
+         获取当前这个按钮的自定义属性myindex
+         offset=（当前的自定义属性值myindex-现在所在位置的index）*-显示的宽度=====再调用动画函数
+   （显示小按钮图标的函数）：
+        变量所有图标，如果找到有class为on的元素，清除class
+        设置当前的元素的class为on
+        
+        
+     自动轮播的效果：
+        当鼠标进入时：停止轮播事件timer
+        当鼠标移除时，调用轮播timer，timer内调用右点击事件
+        
+       
